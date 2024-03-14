@@ -3,11 +3,11 @@ kind: Config
 metadata: 
   name: frontend
 profiles:
-- name: staging
+- name: staging-frontend
   manifests:
     rawYaml:
     - deploy/staging.yaml
-- name: prod
+- name: prod-frontend
   manifests:
     rawYaml:
     - deploy/prod.yaml
