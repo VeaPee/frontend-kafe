@@ -1,0 +1,9 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+ name: frontend-kafe
+spec:
+ template:
+  spec:
+   containers:
+   - image: asia-southeast2-docker.pkg.dev/kafe-tabebuya/cloud-run-source-deploy/frontend-kafe/frontend-kafe:$COMMIT_SHA

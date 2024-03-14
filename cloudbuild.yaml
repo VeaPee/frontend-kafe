@@ -1,0 +1,18 @@
+substitutions:
+  _REGION: asia-southeast2
+steps:
+- name: 'gcr.io/k8s-skaffold/pack'
+  entrypoint: 'pack'
+  args: ['build',
+        '--builder=gcr.io/buildpacks/builder',
+        '--publish', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/containers-repo/app-frontend:$COMMIT_SHA']
+  id: frontend
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
+  entrypoint: gcloud
+  args: 
+      [
+      "deploy", "releases", "create", "release-$SHORT_SHA",
+      "--delivery-pipeline", "pipeline-frontend",
+      "--region", "${_REGION}",
+      "--images", "app=${_REGION}-docker.pkg.dev/${PROJECT_ID}/containers-repo/app-frontend:$COMMIT_SHA"
+      ]

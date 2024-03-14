@@ -1,0 +1,15 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: prod-frontend
+spec:
+  template:
+    spec:
+      containers:
+        - image: app
+          env:
+          - name: REACT_APP_BACKEND_URL
+            valueFrom:
+              secretKeyRef:
+                key: latest
+                name: BACKEND
