@@ -8,8 +8,8 @@ spec:
       containers:
         - image: app
           resources:
-          limits:
-            memory: 1024Mi
+            limits:
+              memory: 1024Mi
           env:
           - name: REACT_APP_BACKEND_URL
             valueFrom:
