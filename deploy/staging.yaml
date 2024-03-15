@@ -9,7 +9,7 @@ spec:
       - image: app
         resources:
           limits:
-            memory: 1024MiB
+            memory: 1024Mi
         env:
         - name: REACT_APP_BACKEND_URL
           valueFrom:
