@@ -38,16 +38,11 @@ const Home = () => {
       {/* HERO SECTION */}
       <section className="container hero">
         <div className="hero-text">
-          <h2>Inventory {"&"} Stock Management Solution</h2>
+          <h2>Inventory {"&"} Stock Management Tabebuya</h2>
           <p>
-            Inventory system to control and manage proucts in the warehouse in
+            Inventory system to control and manage products in the warehouse in
             real time and integrated to make it easier to develop your business.
           </p>
-          <div className="hero-buttons">
-            <button className="--btn --btn-secondary">
-              <Link to="/dashboard">Free Trial 1 Month</Link>
-            </button>
-          </div>
           <div className="--flex-start">
             <NumberText num="14K" text="Brand Owners" />
             <NumberText num="23K" text="Active Users" />
