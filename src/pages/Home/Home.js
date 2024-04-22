@@ -2,7 +2,7 @@ import React from "react";
 import { RiProductHuntLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import "./Home.scss";
-import heroImg from "../../assets/inv-img.png";
+import heroImg from "../../assets/tabebuya.png";
 import { ShowOnLogin, ShowOnLogout } from "../../components/protect/HiddenLink";
 
 const Home = () => {
@@ -43,11 +43,6 @@ const Home = () => {
             Inventory system to control and manage products in the warehouse in
             real time and integrated to make it easier to develop your business.
           </p>
-          <div className="--flex-start">
-            <NumberText num="14K" text="Brand Owners" />
-            <NumberText num="23K" text="Active Users" />
-            <NumberText num="500+" text="Partners" />
-          </div>
         </div>
 
         <div className="hero-image">
