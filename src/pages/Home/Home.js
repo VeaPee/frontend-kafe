@@ -44,10 +44,6 @@ const Home = () => {
             real time and integrated to make it easier to develop your business.
           </p>
         </div>
-
-        <div className="hero-image">
-          <img src={heroImg} alt="Inventory" />
-        </div>
       </section>
     </div>
   );
