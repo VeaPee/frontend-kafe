@@ -11,7 +11,8 @@ variables:
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   vmImageName: 'ubuntu-latest'
-
+  REACT_APP_BACKEND_URL: '$(REACT_APP_BACKEND_URL)'
+  
 stages:
 - stage: Build
   displayName: Build and push stage
