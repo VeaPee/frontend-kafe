@@ -34,9 +34,9 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-          
+        buildContext: '$(Build.Repository.LocalPath)'
     - script: ls -al /home/vsts/work/_temp/task_outputs
       displayName: Check temp directory
-  buildContext: '$(Build.Repository.LocalPath)'
+  
 
       
