@@ -21,10 +21,6 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - script: mkdir -p /home/vsts/work/_temp/task_outputs
-      displayName: Ensure temp directory
-      
-
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
@@ -34,9 +30,11 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-        buildContext: '$(Build.Repository.LocalPath)'
-    - script: ls -al /home/vsts/work/_temp/task_outputs
-      displayName: Check temp directory
-  
+    - task: AzureWebAppContainer@1
+      displayName: 'Azure Web App on Container Deploy'
+      inputs:
+        azureSubscription: 'backend-connection'
+        appName: 'FrontendAppCafe'
+        containers: $(containerRegistry)/$(imageRepository):$(tag)
 
       
