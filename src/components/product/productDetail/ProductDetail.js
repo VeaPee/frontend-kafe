@@ -73,7 +73,7 @@ const ProductDetail = () => {
               <b>&rarr; Quantity in stock : </b> {product.quantity}
             </p>
             <p>
-              <b>&rarr; Total Value in stock : </b> {"$"}
+              <b>&rarr; Total Value in stock : </b> {"Rp. "}
               {product.price * product.quantity}
             </p>
             <hr />
