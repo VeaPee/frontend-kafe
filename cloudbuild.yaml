@@ -7,6 +7,17 @@ steps:
         '--builder=gcr.io/buildpacks/builder',
         '--publish', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/containers-repo/app-frontend:$COMMIT_SHA']
   id: frontend
+
+- name: "gcr.io/cloud-builders/npm"
+  id: install-dependencies
+  entrypoint: npm
+  args: ['install']
+
+- name: "gcr.io/cloud-builders/npm"
+  id: run-tests
+  entrypoint: npm
+  args: ["run", "test"]
+  
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
   entrypoint: gcloud
   args: 
