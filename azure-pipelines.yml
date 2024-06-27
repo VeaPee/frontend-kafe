@@ -32,23 +32,18 @@ stages:
           $(tag)
 
 - stage: Test
-  displayName: Test application
+  displayName: Test
   jobs:
   - job: Test
-    displayName: Run tests on image
+    displayName: Test
     pool:
       vmImage: $(vmImageName)
     steps:
-      - task: Docker@2
-        displayName: Pull built image
-        inputs:
-          command: pull
-          repository: $(containerRegistry)/$(imageRepository)
-          tags: $(tag)
-
-      - script: |
-          docker run --rm $(containerRegistry)/$(imageRepository):$(tag) npm run test
-        displayName: Run Tests in Container
+    - script: |
+        npm install
+        npm run test
+      displayName: 'Run Tests'
+      workingDirectory: '$(Build.SourcesDirectory)'
 
 - stage: Deploy
   displayName: Deploy Stage
