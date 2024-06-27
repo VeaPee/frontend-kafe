@@ -31,20 +31,6 @@ stages:
         tags: |
           $(tag)
 
-- stage: Test
-  displayName: Test
-  jobs:
-  - job: Test
-    displayName: Test
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-    - script: |
-        npm install
-        npm run test
-      displayName: 'Run Tests'
-      workingDirectory: '$(Build.SourcesDirectory)'
-
 - stage: Deploy
   displayName: Deploy Stage
   jobs:

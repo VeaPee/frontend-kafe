@@ -9,6 +9,10 @@ COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 
 # Install dependencies
 RUN npm install --production && mv node_modules ../
+
+#Testing
+RUN npm run test
+
 COPY . .
 
 # Set ownership and user
