@@ -10,8 +10,8 @@ steps:
 
 - name: 'node:16'
   entrypoint: npm
-  args: ['install', '--global', 'jest']
-  id: install-jest
+  args: ['install', '--global', 'react-scripts']
+  id: install-react-scripts
 
 - name: "gcr.io/cloud-builders/npm"
   entrypoint: npm
