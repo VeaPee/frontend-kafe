@@ -44,10 +44,10 @@ stages:
         inputs:
           command: pull
           repository: $(containerRegistry)/$(imageRepository)
-          tags: $(tag)  # Use the build stage tag
+          tags: $(tag)
 
       - script: |
-          docker run --rm $(containerRegistry)/$(imageRepository):$(tag)-build npm run test
+          docker run --rm $(containerRegistry)/$(imageRepository):$(tag) npm run test
         displayName: Run Tests in Container
 
 - stage: Deploy
