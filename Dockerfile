@@ -1,22 +1,23 @@
 FROM node:21.6.1-alpine
 
 # Install Python and update npm
-RUN apk add --no-cache python3 \
-    && npm install -g npm@latest
+RUN apk add --no-cache python3 && \
+    npm install -g npm@latest
 
 WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+
+COPY package*.json ./
 
 # Install dependencies
-RUN npm install --production && mv node_modules ../
-
-#Testing
-RUN npm run test
+RUN npm install --production
 
 COPY . .
 
 # Set ownership and user
 RUN chown -R node /usr/src/app
 USER node
+
+# Run tests
+RUN npm run test
 
 CMD ["npm", "start"]
